@@ -1,4 +1,4 @@
-<p aling="center">
+<p align="center">
   <img src="./github/spacetraveling-logo.svg"   width="175px" alt="Spacetraveling Logo" />
 </p>
 
