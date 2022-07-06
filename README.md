@@ -2,13 +2,21 @@
   <img src="./github/spacetraveling-logo.svg"   width="175px" alt="Spacetraveling Logo" />
 </p>
 
+<p align="center">
+ <a href="#spacetraveling">Sobre</a> •
+ <a href="#%EF%B8%8Ffuncionalidades">Funcionalidades</a> •
+ <a href="#-layout">Layout</a> •
+ <a href="#-como-executar-o-projeto">Como executar o projeto</a>  •
+ <a href="#-tecnologias">Tecnologias</a>
+</p>
+
 # Spacetraveling
 
 Aplicação para colocar em prática conceitos aprendido durante o módulo 3 do curso do Ignite da Rocketseat. Intuito é a criação de um Blog.
 
 <h4 align="center"> 🚧 Spacetraveling 🚀 Em construção 🚧 </h4>
 
-## ⚙️ Funcionalidades
+## ⚙️Funcionalidades
 
 - [x] Deve ser possível utilizar a fonte Inter e os seguintes tamanhos:
   - [x] Regular
