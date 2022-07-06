@@ -21,8 +21,8 @@ Aplicação para colocar em prática conceitos aprendido durante o módulo 3 do 
 ## 🎨 Layout
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center; gap: 8px ">
-  <img src="./github/home.svg"   width="200px" alt="Home" />
-  <img src="./github/post.svg"   width="200px" alt="Post" />
+  <img src="./github/home.svg" width="400px" height="200px" alt="Home" />
+  <img src="./github/post.svg" width="400px" height="200px" alt="Post" />
 </p>
 
 <a href="https://www.figma.com/file/D0dCXNNcvdhMVgn8ZczRPQ/Desafios-M%C3%B3dulo-3-ReactJS?node-id=0%3A1">
