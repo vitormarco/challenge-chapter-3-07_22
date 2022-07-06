@@ -20,7 +20,7 @@ Aplicação para colocar em prática conceitos aprendido durante o módulo 3 do 
 
 ## 🎨 Layout
 
-<p align="center" style="display: flex; align-items: flex-start; justify-content: center; gap: 8px">
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center; ">
   <img src="./github/home.svg"   width="200px" alt="Home" />
   <img src="./github/post.svg"   width="200px" alt="Post" />
 </p>
