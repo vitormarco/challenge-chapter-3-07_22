@@ -46,6 +46,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/);
 - Precisa ter uma conta no [Prismic](https://prismic.io/);
 - Depois de configurado conta e repositório do **Prismic**, terá que configurar conforme a tecnologia utilizada, que é o [Pirsmic com Next](https://prismic.io/docs/technologies/nextjs);
+- Você precisa criar .env.local e popular a variável **PRISMIC_API_ENDPOINT** conforme as orientações do **prismic**
 - Além disto é bom ter um editor para trabalhar com o código, como o [VSCode](https://code.visualstudio.com/).
 
 Após tudo configurado e instalado
