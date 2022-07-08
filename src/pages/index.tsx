@@ -1,8 +1,12 @@
 import { GetStaticProps } from 'next';
-import Header from 'src/components/Header';
-import { Main } from 'src/template/Main';
+import Link from 'next/link';
 
 import { getPrismicClient } from '../services/prismic';
+
+import { FaUser, FaCalendar } from 'react-icons/fa';
+
+import Header from 'src/components/Header';
+import { Main } from 'src/template/Main';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
@@ -35,7 +39,29 @@ export default function Home({ postsPagination }: HomeProps) {
         <Header />
       </div>
       <Main>
-        <h1>Hellow World!</h1>
+        <ul>
+          <li>
+            <Link href="#">
+              <a>
+                <h2>Criando um app CRA do zero</h2>
+                <p>
+                  Tudo sobre como criar a sua primeira aplicação utilizando
+                  Create React App
+                </p>
+                <div>
+                  <span>
+                    <FaCalendar size={20} />
+                    19 Abr 2021
+                  </span>
+                  <span>
+                    <FaUser size={20} />
+                    Danilo Vieira
+                  </span>
+                </div>
+              </a>
+            </Link>
+          </li>
+        </ul>
       </Main>
     </>
   );
