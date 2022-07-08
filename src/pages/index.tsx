@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Header from 'src/components/Header';
 import { Main } from 'src/template/Main';
 
 import { getPrismicClient } from '../services/prismic';
@@ -27,9 +28,14 @@ interface HomeProps {
 
 export default function Home() {
   return (
-    <Main>
-      <h1>Hellow World!</h1>
-    </Main>
+    <>
+      <div className={commonStyles.container}>
+        <Header />
+      </div>
+      <Main>
+        <h1>Hellow World!</h1>
+      </Main>
+    </>
   );
 }
 
