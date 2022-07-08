@@ -12,7 +12,8 @@
 
 # Spacetraveling
 
-Aplicação para colocar em prática conceitos aprendido durante o módulo 3 do curso do Ignite da Rocketseat. Intuito é a criação de um Blog.
+Aplicação para colocar em prática conceitos aprendidos durante o módulo 3 do curso do Ignite da Rocketseat.
+Objettivo é a criação de um Blog, onde o admin consegue criar novos posts e controlar os post existentes pelo **CMS** e o usuário final, consegue visualizar lista de posts existentes e navegar para dentro de um post especifico.
 
 <h4 align="center"> 🚧 Spacetraveling 🚀 Em construção 🚧 </h4>
 
