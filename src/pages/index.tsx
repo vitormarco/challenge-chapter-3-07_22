@@ -49,14 +49,14 @@ export default function Home({ postsPagination }: HomeProps) {
                   Create React App
                 </p>
                 <div>
-                  <span>
+                  <div>
                     <FaCalendar size={20} />
-                    19 Abr 2021
-                  </span>
-                  <span>
+                    <time>19 Abr 2021</time>
+                  </div>
+                  <div>
                     <FaUser size={20} />
-                    Danilo Vieira
-                  </span>
+                    <span>Danilo Vieira</span>
+                  </div>
                 </div>
               </a>
             </Link>
