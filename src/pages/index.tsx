@@ -6,8 +6,8 @@ import ptBr from 'date-fns/locale/pt-BR';
 
 import { FiUser, FiCalendar } from 'react-icons/fi';
 
-import Header from 'src/components/Header';
-import { Main } from 'src/template/Main';
+import Header from '../components/Header';
+import { Main } from '../template/Main';
 import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
@@ -33,7 +33,10 @@ interface HomeProps {
 }
 
 export default function Home({ postsPagination }: HomeProps): ReactNode {
-  console.log(postsPagination.next_page);
+  const handleFetchPosts = (nextPage: string): void => {
+    console.log(nextPage);
+  };
+
   return (
     <>
       <div className={commonStyles.container}>
@@ -64,6 +67,15 @@ export default function Home({ postsPagination }: HomeProps): ReactNode {
             </li>
           ))}
         </ul>
+        {postsPagination.next_page && (
+          <button
+            className={styles.button}
+            type="button"
+            onClick={() => handleFetchPosts(postsPagination.next_page)}
+          >
+            Carregar mais posts
+          </button>
+        )}
       </Main>
     </>
   );

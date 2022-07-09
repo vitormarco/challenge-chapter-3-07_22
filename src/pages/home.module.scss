@@ -33,3 +33,15 @@
     }
   }
 }
+
+.button {
+  margin-top: 64px;
+  background: transparent;
+  border: none;
+  color: var(--pink-100);
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}
