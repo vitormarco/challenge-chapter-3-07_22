@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { getPrismicClient } from '../../services/prismic';
@@ -13,12 +14,12 @@ interface Post {
       url: string;
     };
     author: string;
-    content: {
+    content: Array<{
       heading: string;
-      body: {
+      body: Array<{
         text: string;
-      }[];
-    }[];
+      }>;
+    }>;
   };
 }
 
@@ -26,20 +27,29 @@ interface PostProps {
   post: Post;
 }
 
-// export default function Post() {
-//   // TODO
-// }
+export default function Post({ post }: PostProps): ReactNode {
+  return <h1>{post.first_publication_date}</h1>;
+}
 
-// export const getStaticPaths = async () => {
-//   const prismic = getPrismicClient({});
-//   const posts = await prismic.getByType(TODO);
+export const getStaticPaths: GetStaticPaths = async () => {
+  // const prismic = getPrismicClient({});
+  // const posts = await prismic.getByType(TODO);
 
-//   // TODO
-// };
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
+};
 
-// export const getStaticProps = async ({params }) => {
-//   const prismic = getPrismicClient({});
-//   const response = await prismic.getByUID(TODO);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // const prismic = getPrismicClient({});
+  // const response = await prismic.getByUID(params);
 
-//   // TODO
-// };
+  return {
+    props: {
+      post: {
+        first_publication_date: 'hello',
+      },
+    },
+  };
+};

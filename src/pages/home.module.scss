@@ -1,1 +1,35 @@
-// TODO
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.listItem {
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .infoContent {
+    display: flex;
+    gap: 24px;
+
+    time {
+      text-transform: capitalize;
+    }
+
+    & > div {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 8px;
+    }
+  }
+}

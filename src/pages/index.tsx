@@ -1,12 +1,14 @@
+import { ReactNode } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { format } from 'date-fns';
+import ptBr from 'date-fns/locale/pt-BR';
 
-import { getPrismicClient } from '../services/prismic';
-
-import { FaUser, FaCalendar } from 'react-icons/fa';
+import { FiUser, FiCalendar } from 'react-icons/fi';
 
 import Header from 'src/components/Header';
 import { Main } from 'src/template/Main';
+import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
@@ -30,37 +32,37 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps) {
-  console.log(postsPagination);
-
+export default function Home({ postsPagination }: HomeProps): ReactNode {
+  console.log(postsPagination.next_page);
   return (
     <>
       <div className={commonStyles.container}>
         <Header />
       </div>
       <Main>
-        <ul>
-          <li>
-            <Link href="#">
-              <a>
-                <h2>Criando um app CRA do zero</h2>
-                <p>
-                  Tudo sobre como criar a sua primeira aplicação utilizando
-                  Create React App
-                </p>
-                <div>
-                  <div>
-                    <FaCalendar size={20} />
-                    <time>19 Abr 2021</time>
+        <ul className={styles.list}>
+          {postsPagination.results.map(post => (
+            <li key={post.uid} className={styles.listItem}>
+              <Link href={`/post/${post.uid}`}>
+                <a>
+                  <div className={styles.textContent}>
+                    <h2>{post.data.title}</h2>
+                    <p>{post.data.subtitle}</p>
                   </div>
-                  <div>
-                    <FaUser size={20} />
-                    <span>Danilo Vieira</span>
+                  <div className={styles.infoContent}>
+                    <div>
+                      <FiCalendar size={20} />
+                      <time>{post.first_publication_date}</time>
+                    </div>
+                    <div>
+                      <FiUser size={20} />
+                      <span>{post.data.author}</span>
+                    </div>
                   </div>
-                </div>
-              </a>
-            </Link>
-          </li>
+                </a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </Main>
     </>
@@ -72,11 +74,16 @@ export const getStaticProps: GetStaticProps = async () => {
   const postsResponse = await prismic.getByType('posts', {
     pageSize: 1,
   });
+
   const postsPagination = {
     next_page: postsResponse.next_page,
     results: postsResponse.results.map(post => ({
       uid: post.uid,
-      first_publication_date: post.first_publication_date,
+      first_publication_date: format(
+        new Date(post.first_publication_date),
+        'dd LLL yyyy',
+        { locale: ptBr }
+      ),
       data: {
         title: post.data.title,
         subtitle: post.data.subtitle,
