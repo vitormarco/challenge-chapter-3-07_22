@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { format } from 'date-fns';
@@ -6,6 +6,7 @@ import ptBr from 'date-fns/locale/pt-BR';
 
 import { FiUser, FiCalendar } from 'react-icons/fi';
 
+import { useState } from 'react';
 import Header from '../components/Header';
 import { Main } from '../template/Main';
 import { getPrismicClient } from '../services/prismic';
@@ -32,9 +33,17 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps): ReactNode {
-  const handleFetchPosts = (nextPage: string): void => {
-    console.log(nextPage);
+export default function Home({ postsPagination }: HomeProps): ReactElement {
+  const [results, setResults] = useState(postsPagination.results);
+  const [nextPage, setNextPage] = useState(postsPagination.next_page);
+
+  const handleFetchPosts = (nextPageToFetch: string): void => {
+    fetch(nextPageToFetch)
+      .then(res => res.json())
+      .then(res => {
+        setResults(oldState => [...oldState, ...res.results]);
+        setNextPage(res.nex_page);
+      });
   };
 
   return (
@@ -44,7 +53,7 @@ export default function Home({ postsPagination }: HomeProps): ReactNode {
       </div>
       <Main>
         <ul className={styles.list}>
-          {postsPagination.results.map(post => (
+          {results.map(post => (
             <li key={post.uid} className={styles.listItem}>
               <Link href={`/post/${post.uid}`}>
                 <a>
@@ -55,7 +64,14 @@ export default function Home({ postsPagination }: HomeProps): ReactNode {
                   <div className={styles.infoContent}>
                     <div>
                       <FiCalendar size={20} />
-                      <time>{post.first_publication_date}</time>
+
+                      <time>
+                        {format(
+                          new Date(post.first_publication_date),
+                          'dd LLL yyyy',
+                          { locale: ptBr }
+                        )}
+                      </time>
                     </div>
                     <div>
                       <FiUser size={20} />
@@ -67,7 +83,7 @@ export default function Home({ postsPagination }: HomeProps): ReactNode {
             </li>
           ))}
         </ul>
-        {postsPagination.next_page && (
+        {nextPage && (
           <button
             className={styles.button}
             type="button"
@@ -91,11 +107,7 @@ export const getStaticProps: GetStaticProps = async () => {
     next_page: postsResponse.next_page,
     results: postsResponse.results.map(post => ({
       uid: post.uid,
-      first_publication_date: format(
-        new Date(post.first_publication_date),
-        'dd LLL yyyy',
-        { locale: ptBr }
-      ),
+      first_publication_date: post.first_publication_date,
       data: {
         title: post.data.title,
         subtitle: post.data.subtitle,

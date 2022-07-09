@@ -22,10 +22,6 @@
     display: flex;
     gap: 24px;
 
-    time {
-      text-transform: capitalize;
-    }
-
     & > div {
       display: grid;
       grid-template-columns: auto auto;
