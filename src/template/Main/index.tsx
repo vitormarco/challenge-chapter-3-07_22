@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-import styles from 'src/styles/common.module.scss';
+import { FC } from 'react';
+import styles from '../../styles/common.module.scss';
 
-export const Main: ReactNode = ({ children }) => {
+export const Main: FC = ({ children }) => {
   return (
     <div className={styles.container}>
       <main>{children}</main>
