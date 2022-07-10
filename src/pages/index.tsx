@@ -39,12 +39,14 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
   const [loading, setLoading] = useState(false);
 
   const handleFetchPosts = (nextPageToFetch: string): void => {
+    console.log('@@PAGE TO FEAT: ', nextPage);
     setLoading(true);
     fetch(nextPageToFetch)
       .then(res => res.json())
       .then(res => {
         setResults(oldState => [...oldState, ...res.results]);
-        setNextPage(res.nex_page);
+        setNextPage(res.next_page);
+        console.log('@@PAGE TO FEAT: ', res.next_page);
       })
       .finally(() => setLoading(false));
   };
@@ -65,21 +67,23 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
                     <p>{post.data.subtitle}</p>
                   </div>
                   <div className={styles.infoContent}>
-                    <div>
-                      <FiCalendar size={20} />
+                    <ul>
+                      <li>
+                        <FiCalendar size={20} />
 
-                      <time>
-                        {format(
-                          new Date(post.first_publication_date),
-                          'dd LLL yyyy',
-                          { locale: ptBr }
-                        )}
-                      </time>
-                    </div>
-                    <div>
-                      <FiUser size={20} />
-                      <span>{post.data.author}</span>
-                    </div>
+                        <time>
+                          {format(
+                            new Date(post.first_publication_date),
+                            'dd LLL yyyy',
+                            { locale: ptBr }
+                          )}
+                        </time>
+                      </li>
+                      <li>
+                        <FiUser size={20} />
+                        <span>{post.data.author}</span>
+                      </li>
+                    </ul>
                   </div>
                 </a>
               </Link>
@@ -90,7 +94,7 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
           <button
             className={styles.button}
             type="button"
-            onClick={() => handleFetchPosts(postsPagination.next_page)}
+            onClick={() => handleFetchPosts(nextPage)}
           >
             Carregar mais posts
           </button>

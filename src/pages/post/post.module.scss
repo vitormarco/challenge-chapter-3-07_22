@@ -45,6 +45,7 @@
   p {
     color: var(--white-250);
     margin-bottom: 16px;
+    text-align: justify;
   }
 
   ul {
@@ -56,7 +57,7 @@
     font-weight: bold;
   }
 
-  span {
+  a {
     color: var(--pink-100);
   }
 }
