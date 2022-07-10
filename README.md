@@ -13,7 +13,7 @@
 # Spacetraveling
 
 <p align="center">
-  <img src="./github/spacetraveling.gif"   width="400px" alt="Spacetraveling" />
+  <img src="./github/spacetraveling.gif" width="400px" alt="Spacetraveling" />
 </p>
 
 Aplicação para colocar em prática conceitos aprendidos durante o módulo 3 do curso do Ignite da Rocketseat.
