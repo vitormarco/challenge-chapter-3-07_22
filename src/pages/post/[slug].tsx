@@ -46,6 +46,13 @@ export default function Post({ post }: PostProps): ReactNode {
     return sum + wordsQuantity.length;
   }, 0);
   const timeToRead = Math.round(totalWordsToRead / 200);
+  const publicationDate = format(
+    new Date(post.first_publication_date),
+    'dd LLL yyyy',
+    {
+      locale: ptBr,
+    }
+  );
 
   if (router.isFallback) {
     return <div>Carregando...</div>;
@@ -65,31 +72,28 @@ export default function Post({ post }: PostProps): ReactNode {
         height={400}
       />
       <Main>
-        <header>
+        <header className={styles.headerContent}>
           <h1>{post.data.title}</h1>
-          <ul>
-            <li>
+          <ul className={styles.listInfo}>
+            <li className={styles.listInfoItem}>
               <FiCalendar size={20} />
-              <time>
-                {format(new Date(post.first_publication_date), 'dd LLL yyyy', {
-                  locale: ptBr,
-                })}
-              </time>
+              <time>{publicationDate}</time>
             </li>
-            <li>
+            <li className={styles.listInfoItem}>
               <FiUser size={20} />
               <span>{post.data.author}</span>
             </li>
-            <li>
+            <li className={styles.listInfoItem}>
               <FiClock size={20} />
               <span>{timeToRead} min</span>
             </li>
           </ul>
         </header>
         {post.data.content.map(content => (
-          <div key={`${content.heading}`}>
+          <div key={`${content.heading}`} className={styles.content}>
             <h2>{content.heading}</h2>
             <div
+              className={styles.contentTextZone}
               dangerouslySetInnerHTML={{
                 __html: RichText.asHtml(content.body),
               }}

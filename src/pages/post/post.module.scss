@@ -2,3 +2,61 @@
   max-width: 1120px;
   margin: auto;
 }
+
+.headerContent {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 25px;
+  padding: 80px 0 66px;
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.listInfo {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--white-300);
+
+  span,
+  time {
+    font-size: 0.875rem;
+  }
+}
+
+.listInfoItem {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.content {
+  margin-bottom: 66px;
+
+  h2 {
+    margin-bottom: 40px;
+    color: var(--white-100);
+  }
+
+  p {
+    color: var(--white-250);
+    margin-bottom: 16px;
+  }
+
+  ul {
+    padding: 16px 0;
+  }
+
+  strong,
+  b {
+    font-weight: bold;
+  }
+
+  span {
+    color: var(--pink-100);
+  }
+}
