@@ -15,7 +15,7 @@
 Aplicação para colocar em prática conceitos aprendidos durante o módulo 3 do curso do Ignite da Rocketseat.
 Objettivo é a criação de um Blog, onde o admin consegue criar novos posts e controlar os post existentes pelo **CMS** e o usuário final, consegue visualizar lista de posts existentes e navegar para dentro de um post especifico.
 
-<h4 align="center"> 🚧 Spacetraveling 🚀 Em construção 🚧 </h4>
+<h4 align="center"> 🚧 Spacetraveling ✅ Concluído 🚧 </h4>
 
 ## ⚙️Funcionalidades
 
@@ -23,9 +23,9 @@ Objettivo é a criação de um Blog, onde o admin consegue criar novos posts e c
   - [x] Regular
   - [x] Semi Bold
   - [x] Bold
-- [ ] Deve ser possível visualizar os 20 primeiros posts
-  - [ ] Caso exista mais que 20 posts, o botão 'carregar mais posts' terá que realizar uma pesquisa assíncronas
-- [ ] Caso clique em um post, o usário deverá ser direcionado para todo o conteúdo do post
+- [x] Deve ser possível visualizar os 20 primeiros posts
+  - [x] Caso exista mais que 20 posts, o botão 'carregar mais posts' terá que realizar uma pesquisa assíncronas
+- [x] Caso clique em um post, o usário deverá ser direcionado para todo o conteúdo do post
 
 ## 🎨 Layout
 
@@ -48,7 +48,8 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - Precisa ter uma conta no [Prismic](https://prismic.io/);
 - Depois de configurado conta e repositório do **Prismic**, terá que configurar conforme a tecnologia utilizada, que é o [Pirsmic com Next](https://prismic.io/docs/technologies/nextjs);
 - Você precisa criar .env.local e popular a variável **PRISMIC_API_ENDPOINT** conforme as orientações do **prismic**
-> Exemplo: PRISMIC_API_ENDPOINT=https://meu-repositorio-criado-no-prismic/api/v2
+  > Exemplo: PRISMIC_API_ENDPOINT=https://meu-repositorio-criado-no-prismic/api/v2
+- Você precisa colocar sua api no arquivo [sm.json](https://github.com/vitormarco/spacetraveling/blob/master/sm.json), no campo **apiEndpoint**
 - Além disto é bom ter um editor para trabalhar com o código, como o [VSCode](https://code.visualstudio.com/).
 
 Após tudo configurado e instalado
