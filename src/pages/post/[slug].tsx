@@ -93,7 +93,6 @@ export default function Post({ post }: PostProps): ReactNode {
           <div key={`${content.heading}`} className={styles.content}>
             <h2>{content.heading}</h2>
             <div
-              className={styles.contentTextZone}
               dangerouslySetInnerHTML={{
                 __html: RichText.asHtml(content.body),
               }}
