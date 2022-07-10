@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import ptBr from 'date-fns/locale/pt-BR';
 
-import { FiUser, FiCalendar } from 'react-icons/fi';
+import { FiUser, FiCalendar, FiLoader } from 'react-icons/fi';
 
 import { useState } from 'react';
 import Header from '../components/Header';
@@ -36,14 +36,17 @@ interface HomeProps {
 export default function Home({ postsPagination }: HomeProps): ReactElement {
   const [results, setResults] = useState(postsPagination.results);
   const [nextPage, setNextPage] = useState(postsPagination.next_page);
+  const [loading, setLoading] = useState(false);
 
   const handleFetchPosts = (nextPageToFetch: string): void => {
+    setLoading(true);
     fetch(nextPageToFetch)
       .then(res => res.json())
       .then(res => {
         setResults(oldState => [...oldState, ...res.results]);
         setNextPage(res.nex_page);
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -83,7 +86,7 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
             </li>
           ))}
         </ul>
-        {nextPage && (
+        {nextPage && !loading && (
           <button
             className={styles.button}
             type="button"
@@ -91,6 +94,11 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
           >
             Carregar mais posts
           </button>
+        )}
+        {loading && (
+          <div className={styles.loading}>
+            <FiLoader size={25} />
+          </div>
         )}
       </Main>
     </>
@@ -100,7 +108,7 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient({});
   const postsResponse = await prismic.getByType('posts', {
-    pageSize: 20,
+    pageSize: 1,
   });
 
   const postsPagination = {

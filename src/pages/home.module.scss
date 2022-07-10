@@ -41,3 +41,20 @@
     filter: brightness(80%);
   }
 }
+
+.loading {
+  margin-top: 64px;
+
+  svg {
+    animation: lds-dual-ring 5s linear infinite;
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
