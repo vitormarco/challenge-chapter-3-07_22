@@ -12,6 +12,10 @@
 
 # Spacetraveling
 
+<p align="center">
+  <img src="./github/spacetraveling.gif"   width="400px" alt="Spacetraveling" />
+</p>
+
 Aplicação para colocar em prática conceitos aprendidos durante o módulo 3 do curso do Ignite da Rocketseat.
 Objettivo é a criação de um Blog, onde o admin consegue criar novos posts e controlar os post existentes pelo **CMS** e o usuário final, consegue visualizar lista de posts existentes e navegar para dentro de um post especifico.
 
@@ -80,6 +84,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - ✔️ [ReactJS](https://reactjs.org/)
 - ✔️ [Typescript](https://www.typescriptlang.org/)
 - ✔️ [Next](https://nextjs.org/docs/basic-features/typescript)
+  - ✔️ [getStaticProps](https://nextjs.org/docs/basic-features/pages#static-generation-with-data)
+  - ✔️ [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths)
 - ✔️ [Prismic](https://prismic.io/docs)
 - ✔️ [Date-fns](https://date-fns.org/)
 
