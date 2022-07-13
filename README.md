@@ -17,7 +17,7 @@
 </p>
 
 Aplicação para colocar em prática conceitos aprendidos durante o módulo 3 do curso do Ignite da Rocketseat.
-Objettivo é a criação de um Blog, onde o admin consegue criar novos posts e controlar os post existentes pelo **CMS** e o usuário final, consegue visualizar lista de posts existentes e navegar para dentro de um post especifico.
+Objetivo é a criação de um Blog. Onde o Admin consegue criar novos posts e controlar os post existentes pelo **CMS**. O usuário final consegue visualizar a lista de posts existentes e navegar para dentro de um post especifico.
 
 <h4 align="center"> 🚧 Spacetraveling ✅ Concluído 🚧 </h4>
 
